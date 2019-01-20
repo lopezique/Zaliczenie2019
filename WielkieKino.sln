@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.Lib", "WielkieKino.Lib\WielkieKino.Lib.csproj", "{FCB35363-BFE5-4984-8448-175C9CE54C8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.Dane", "WielkieKino.Dane\WielkieKino.Dane.csproj", "{BEE3161F-C21F-4FCC-B73C-8146F7D207E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.Logic", "WielkieKino.Logic\WielkieKino.Logic.csproj", "{E0232D1F-A35E-4459-8BD9-4827D38F2B2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.App", "WielkieKino.App\WielkieKino.App.csproj", "{B61CDD01-7C41-45A5-B460-2FB06EFB442B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F3241DB1-E7B9-4F27-968D-5226F85082F9}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.DaneTests", "WielkieKino.DaneTests\WielkieKino.DaneTests.csproj", "{103884FE-27D7-4983-B863-C0EC10EE88F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCB35363-BFE5-4984-8448-175C9CE54C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB35363-BFE5-4984-8448-175C9CE54C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB35363-BFE5-4984-8448-175C9CE54C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB35363-BFE5-4984-8448-175C9CE54C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE3161F-C21F-4FCC-B73C-8146F7D207E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE3161F-C21F-4FCC-B73C-8146F7D207E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE3161F-C21F-4FCC-B73C-8146F7D207E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE3161F-C21F-4FCC-B73C-8146F7D207E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0232D1F-A35E-4459-8BD9-4827D38F2B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0232D1F-A35E-4459-8BD9-4827D38F2B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0232D1F-A35E-4459-8BD9-4827D38F2B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0232D1F-A35E-4459-8BD9-4827D38F2B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B61CDD01-7C41-45A5-B460-2FB06EFB442B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61CDD01-7C41-45A5-B460-2FB06EFB442B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61CDD01-7C41-45A5-B460-2FB06EFB442B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61CDD01-7C41-45A5-B460-2FB06EFB442B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DB4502A-8EE5-464B-A9B6-E28EC108C220}
+	EndGlobalSection
+EndGlobal
