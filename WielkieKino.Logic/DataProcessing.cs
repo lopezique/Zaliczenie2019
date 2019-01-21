@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,9 @@ namespace WielkieKino.Logic
         public List<string> WybierzFilmyZGatunku(List<Film> filmy, string gatunek)
         {
             // Właściwa odpowiedź: np. "Konan Destylator" dla "Fantasy"
-            return null;
+            return (from Film film in filmy
+                    where film.Gatunek == gatunek
+                    select film.Tytul).ToList();
         }
 
         /// <summary>
@@ -27,13 +30,18 @@ namespace WielkieKino.Logic
         public int PodajCalkowiteWplywyZBiletow(List<Bilet> bilety)
         {
             // Właściwa odpowiedź: 400
-            return -1;
+            return (int)bilety.Sum(bilet => bilet.Cena);
         }
 
         public List<Film> WybierzFilmyPokazywaneDanegoDnia(List<Seans> seanse, DateTime data)
         {
-            return null;
+            return (from Seans s in seanse
+                    where s.Date.Year == data.Year &&
+                    s.Date.Month == data.Month &&
+                    s.Date.Day == data.Day
+                    select s.Film).ToList();
         }
+
 
         /// <summary>
         /// Zwraca gatunek, z którego jest najwięcej filmów. Jeśli jest kilka takich
@@ -43,20 +51,25 @@ namespace WielkieKino.Logic
         /// <returns></returns>
         public string NajpopularniejszyGatunek(List<Film> filmy)
         {
+            string result = filmy.GroupBy(f => f.Gatunek).
+                OrderByDescending(group => group.Count()).First().Key;
             // Właściwa odpowiedź: Obyczajowy
-            return null;
+            return result;
         }
 
         public List<Sala> ZwrocSalePosortowanePoCalkowitejLiczbieMiejsc(List<Sala> sale)
         {
             // Właściwa odpowiedź: Kameralna, Bałtyk, Wisła (lub w odwrotnej kolejności)
-            return null;
+
+            return sale.OrderBy(s=>s.LiczbaMiejscWRzedzie * s.LiczbaRzedow).ToList();
         }
 
         public Sala ZwrocSaleGdzieJestNajwiecejSeansow(List<Seans> seanse, DateTime data)
         {
             // Właściwa odpowiedź dla daty 2019-01-20: sala "Wisła" 
-            return null;
+            return seanse.Where(s => s.Date.ToShortDateString() == data.ToShortDateString())
+                .GroupBy(s => s.Sala).OrderByDescending(gr => gr.Count()).First().Key;
+            //return null;
         }
 
         /// <summary>
@@ -69,7 +82,9 @@ namespace WielkieKino.Logic
         public Film ZwrocFilmNaKtorySprzedanoNajwiecejBiletow(List<Film> filmy, List<Bilet> bilety)
         {
             // Właściwa odpowiedź: "Konan Destylator"
-            return null;
+            return bilety.GroupBy(bilet => bilet.Seans.Film).
+                OrderByDescending(gr => gr.Count())
+                .First().Key;
         }
 
         /// <summary>
@@ -79,11 +94,31 @@ namespace WielkieKino.Logic
         /// <param name="filmy"></param>
         /// <param name="bilety"></param>
         /// <returns></returns>
-        public Film PosortujFilmyPoDochodach(List<Film> filmy, List<Bilet> bilety)
+        
+        //tu należało zmienić zwracany typ.
+        //metoda w zasadzie identyczna jak poprzednio, tylko zmieniono formę zapisu
+        public List<Film> PosortujFilmyPoDochodach(List<Film> filmy, List<Bilet> bilety)
         {
-            return null;
+            Dictionary<Film, double> filmyZDochodami = new Dictionary<Film, double>();
+            //tworzymy słownik filmów
+            foreach (var item in filmy)
+            {
+                filmyZDochodami.Add(item, 0.0);
+            }
+
+            // zliczamy dochody filmów
+            for (int i = 0; i < filmyZDochodami.Count; i++)
+            { 
+                Film f = filmyZDochodami.Keys.ElementAt(i);
+                List<Bilet> biletyNaFilm = bilety.Where(bilet => bilet.Seans.Film == f).ToList();
+                filmyZDochodami[f] = biletyNaFilm.Sum(
+                    b => b.Cena);
+            }
+
+            // wybieramy najbardziej dochodowy film
+            double maxProfit = filmyZDochodami.Values.Max();
+            return filmyZDochodami.OrderByDescending(entry => entry.Value).
+                Select(entry => entry.Key).ToList();
         }
-
-
     }
 }

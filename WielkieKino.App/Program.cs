@@ -19,7 +19,26 @@ namespace WielkieKino.App
         /// <param name="seans"></param>
         private static void WyswietlPodgladSali(List<Bilet> sprzedaneBilety, Seans seans)
         {
+            int[,] podglad = new int[seans.Sala.LiczbaRzedow,seans.Sala.LiczbaMiejscWRzedzie];
+            foreach (Bilet bilet in sprzedaneBilety)
+            {
+                if (bilet.Seans == seans)
+                {
+                    podglad[bilet.Rzad - 1, bilet.Miejsce - 1] = 1;
+                }
+            }
 
+            for (int i = 0; i < seans.Sala.LiczbaRzedow; i++)
+            {
+                for (int j = 0; j < seans.Sala.LiczbaMiejscWRzedzie; j++)
+                {
+                    if (podglad[i, j] == 1)
+                        Console.Write('o');
+                    else
+                        Console.Write('-');
+                }
+                Console.WriteLine();
+            }
         }
 
         /// <summary>
@@ -32,6 +51,13 @@ namespace WielkieKino.App
         {
             //Wskazówka: Do obliczenia czy parametr data "wpada" w film można wykorzystać
             //metodę AddMinutes wykonanej na czasie rozpoczęcia seansu.
+            foreach (Seans seans in seanse)
+            {
+                if (seans.Date.Ticks <= data.Ticks
+                    && seans.Date.AddMinutes(seans.Film.CzasTrwania).Ticks >= data.Ticks)
+                    Console.WriteLine(seans.Film.Tytul + " " + seans.Date.ToShortTimeString() + " " +
+                        seans.Film.CzasTrwania + " " + seans.Sala.Nazwa);
+            }
         }
 
         public static void Main(string[] args)
@@ -47,6 +73,8 @@ namespace WielkieKino.App
             -----oo---
             ----------
             */
+            WyswietlFilmyOGodzinie(Dane.SkladDanych.Seanse, new DateTime(2019, 01, 20, 12, 0, 0));
+            Console.ReadKey();
         }
     }
 }

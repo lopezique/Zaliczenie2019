@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.DaneTests", "WielkieKino.DaneTests\WielkieKino.DaneTests.csproj", "{103884FE-27D7-4983-B863-C0EC10EE88F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WielkieKino.LogicTests", "WielkieKino.LogicTests\WielkieKino.LogicTests.csproj", "{B1C6821E-B879-4727-9252-7EC5753C0B4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{103884FE-27D7-4983-B863-C0EC10EE88F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C6821E-B879-4727-9252-7EC5753C0B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C6821E-B879-4727-9252-7EC5753C0B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C6821E-B879-4727-9252-7EC5753C0B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C6821E-B879-4727-9252-7EC5753C0B4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
